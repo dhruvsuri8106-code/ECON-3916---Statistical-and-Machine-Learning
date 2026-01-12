@@ -44,5 +44,6 @@ I'm continuously updating this repository as I progress through the course. Feel
 
 ---
 
-*Last Updated: [Insert Date]*  
-*Course: ECON 3916 | [Your University Name]*
+*Last Updated: [1/12/26]*  
+*Course: ECON 3916 | [Northeastern University]
+
