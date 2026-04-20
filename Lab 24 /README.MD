@@ -21,5 +21,5 @@ Estimated the causal effect of 401(k) eligibility on household net financial ass
 
 ## Notes
 Replace the placeholder findings with your exact empirical results:
-- **Estimated ATE:** [INSERT ATE]
-- **Income heterogeneity:** [INSERT HOW THE EFFECT VARIED ACROSS QUARTILES]
+- **Estimated ATE:** 5
+- **Income heterogeneity:** Effect stronger amongst Q4
