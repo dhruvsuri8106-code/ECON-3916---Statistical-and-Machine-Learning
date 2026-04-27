@@ -42,37 +42,27 @@ delta_run_exp_max = 3.579
 delta_run_exp_mean = 0.0001
 
 # Sidebar controls for input features
-st.sidebar.header('Input Pitch Parameters')
 release_speed = st.sidebar.slider(
-    'Release Speed (mph)',
-    min_value=float(release_speed_min),
-    max_value=float(release_speed_max),
-    value=float(release_speed_mean)
+    "Release Speed (mph)",
+    float(df["release_speed"].min()),
+    float(df["release_speed"].max()),
+    float(df["release_speed"].mean())
 )
+
 spin_axis = st.sidebar.slider(
-    'Spin Axis (degrees)',
-    min_value=float(spin_axis_min),
-    max_value=float(spin_axis_max),
-    value=float(spin_axis_mean)
-)
-delta_run_exp = st.sidebar.slider(
-    'Delta Run Expectancy (change in expected runs)',
-    min_value=float(delta_run_exp_min),
-    max_value=float(delta_run_exp_max),
-    value=float(delta_run_exp_mean),
-    format='%.3f'
+    "Spin Axis (degrees)",
+    float(df["spin_axis"].min()),
+    float(df["spin_axis"].max()),
+    float(df["spin_axis"].mean())
 )
 
 # Prepare input data for prediction
-input_data = pd.DataFrame({
-    'release_speed': [release_speed],
-    'spin_axis': [spin_axis],
-    'delta_run_exp': [delta_run_exp]
-})
+input_data = pd.DataFrame([{
+    "release_speed": release_speed,
+    "spin_axis": spin_axis
+}])
 
-# Generate prediction
 prediction = model.predict(input_data)[0]
-
 st.subheader('Predicted Delta Home Win Expectancy')
 st.metric('Prediction', f'{prediction:.4f}')
 
