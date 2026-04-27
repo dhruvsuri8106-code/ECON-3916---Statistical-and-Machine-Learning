@@ -17,9 +17,11 @@ from sklearn.ensemble import RandomForestRegressor
 BASE_DIR = Path(__file__).resolve().parent
 
 df = pd.read_csv(BASE_DIR / "statcast_sample.csv")
-target = "delta_home_win_exp"
 
-X = df.drop(columns=[target])
+target = "delta_home_win_exp"
+features = ["release_speed", "spin_axis"]
+
+X = df[features]
 y = df[target]
 
 model = RandomForestRegressor(random_state=42)
