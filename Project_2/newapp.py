@@ -10,7 +10,21 @@ st.title('MLB Statcast Data 2018: Pitch Outcome Predictor')
 st.markdown('This app predicts the `delta_home_win_exp` (advantage to hitting team) based on pitching data and match context.')
 
 # Load model (saved from your Colab notebook)
-model = joblib.load('model.pkl')
+from pathlib import Path
+import pandas as pd
+from sklearn.ensemble import RandomForestRegressor
+
+BASE_DIR = Path(__file__).resolve().parent
+
+df = pd.read_csv(BASE_DIR / "your_data_file.csv")
+
+target = "delta_home_win_exp"
+
+X = df.drop(columns=[target])
+y = df[target]
+
+model = RandomForestRegressor(random_state=42)
+model.fit(X, y)
 
 # Get feature ranges from your original DataFrame (assuming df_cleaned is available or you know the ranges)
 # For a more robust app, you might save these min/max values alongside the model.
