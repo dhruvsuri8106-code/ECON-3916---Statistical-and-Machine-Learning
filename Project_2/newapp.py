@@ -81,9 +81,9 @@ plot_release_speeds = np.linspace(release_speed_min, release_speed_max, 50)
 # Create input data for these speeds, keeping other features constant
 plot_data = pd.DataFrame({
     'release_speed': plot_release_speeds,
-    'spin_axis': spin_axis,
-    'delta_run_exp': delta_run_exp
+    'spin_axis': spin_axis
 })
+
 # Get predictions for this range
 plot_predictions = model.predict(plot_data)
 
