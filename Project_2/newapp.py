@@ -16,8 +16,7 @@ from sklearn.ensemble import RandomForestRegressor
 
 BASE_DIR = Path(__file__).resolve().parent
 
-df = pd.read_csv(BASE_DIR / "your_data_file.csv")
-
+df = pd.read_csv(BASE_DIR / "statcast_sample.csv")
 target = "delta_home_win_exp"
 
 X = df.drop(columns=[target])
